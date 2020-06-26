@@ -3,10 +3,14 @@ server:
   port: 8888
 
 spring:
-  profiles:
-    active: native
+#  profiles:
+#    active: native
   cloud:
     config:
       server:
-        native:
-          search-locations: /home/dirceu/dev/workspaces/spring-tools/microservice-repo
+         git:
+          uri: https://github.com/dirceus/config-repo
+          search-paths:
+          - fornecedor
+#        native:
+#          search-locations: /home/dirceu/dev/workspaces/curso-microservice-alura/microservice-repo
