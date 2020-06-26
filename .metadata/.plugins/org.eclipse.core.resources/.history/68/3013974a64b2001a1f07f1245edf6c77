@@ -1,9 +1,0 @@
-package br.com.dirceus.microservice.loja.controller;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@RestController
-@RequestMapping("/compra")
-public class CompraController {
-
-}

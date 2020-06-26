@@ -1,9 +1,0 @@
-package br.com.dirceus.microservice.loja.dto;
-
-public class CompraDTO {
-
-	private List<ItemDaCompraDTO> itens;
-	
-	
-	
-}
