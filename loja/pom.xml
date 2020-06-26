@@ -46,6 +46,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+	        <resource>
+	            <directory>src/main/resources</directory>
+	            <filtering>true</filtering>
+	        </resource>
+	    </resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -53,6 +59,26 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+	    <profile>
+	        <id>local</id>
+	        <properties>
+	            <eureka.service-url>http://localhost:8761/eureka</eureka.service-url>
+	        </properties>
+	        <activation>
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
+	    </profile>
+	    <profile>
+	        <id>docker</id>
+	        <properties>
+	            <eureka.service-url>http://eureka-server:8761/eureka</eureka.service-url>
+	        </properties>
+	    </profile>
+	    
+	</profiles>
+
 
 	<dependencyManagement>
 		<dependencies>
