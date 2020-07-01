@@ -2,6 +2,7 @@ version: "3"
 services:
   mariadb:
     image: mariadb
+    container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: "root1234"
       MYSQL_DATABASE: "fornecedor"
@@ -13,13 +14,14 @@ services:
       - minha-rede
   adminer:
     image: adminer
+    container_name: adminer
     ports:
       - 3000:8080
     networks:
       - minha-rede
   config-server:
     build:
-      dockerfile: ./config-server/config-server.dockerfile
+      dockerfile: ./config-server/Dockerfile
       context: .
     image: dirceus/config-server
     container_name: config-server
@@ -29,7 +31,7 @@ services:
       - minha-rede
   eureka-server:
     build:
-      dockerfile: ./eureka-server/eureka-server.dockerfile
+      dockerfile: ./eureka-server/Dockerfile
       context: .
     image: dirceus/eureka-server
     container_name: eureka-server
@@ -39,7 +41,7 @@ services:
       - minha-rede
   microservice-fornecedor1:
     build:
-      dockerfile: ./fornecedor/fornecedor.dockerfile
+      dockerfile: ./fornecedor/Dockerfile
       context: .
     image: dirceus/fornecedor-microservico
     container_name: fornecedor1
@@ -53,7 +55,7 @@ services:
       - config-server
   microservice-fornecedor2:
     build:
-      dockerfile: ./fornecedor/fornecedor.dockerfile
+      dockerfile: ./fornecedor/Dockerfile
       context: .
     image: dirceus/fornecedor-microservico
     container_name: fornecedor2
@@ -67,7 +69,7 @@ services:
       - config-server
   microservice-loja:
     build:
-      dockerfile: ./loja/loja.dockerfile
+      dockerfile: ./loja/Dockerfile
       context: .
     image: dirceus/loja-microservico
     container_name: loja
