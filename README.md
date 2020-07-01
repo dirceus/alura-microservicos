@@ -1,42 +1,12 @@
-##### Construindo as aplicações
+# Sobre o Projeto
 
-Acessar os projetos **config-server** e **eureka-service**, e em cada um desses projetos executar o comando abaixo para criar os executáveis das aplicações:
+Este é um projeto para por em prática o conteúdo aprendido nos cursos da Alura.
 
-> ./mvnw package
+Inicialmente o repositório foi construindo com o código fonte do curso de Microserviços, mas a medida que realizo novos cursos incremeto os conhecimentos nesse projeto.
 
-Para os projetos **fornecedor** e **loja**, o comando a ser executado é:
+## Executando as aplicações com o Docker
 
-```
-./mvnw package -Dskiptest -Pdocker
-```
-
-###### Criando as imagens do docker de cada aplicação
-
-**CONFIG SERVER**
-
-```
-docker build -f config-server.dockerfile -t dirceus/config-server .
-```
-
-**EUREKA SERVER**
-
-```
-docker build -f eureka-server.dockerfile -t dirceus/eureka-server .
-```
-
-**Microserviço Fornecedor**
-
-```
-docker build -f fornecedor.dockerfile -t dirceus/fornecedor-microservico .
-```
-
-**Microserviço Loja**
-
-```
-docker build -f loja.dockerfile -t dirceus/loja-microservico .
-```
-
-##### Subindo a aplicação com o Docker-Compose
+> Antes de executar abaixo o comando, deve-se ajustar o mapeamento do volume do container MariaDB no arquivo docker-compose.yml
 
 ```
 docker-compose up
