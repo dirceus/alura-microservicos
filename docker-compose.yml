@@ -21,8 +21,8 @@ services:
       - minha-rede
   config-server:
     build:
-      dockerfile: ./config-server/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: config-server
     image: dirceus/config-server
     container_name: config-server
     ports:
@@ -31,8 +31,8 @@ services:
       - minha-rede
   eureka-server:
     build:
-      dockerfile: ./eureka-server/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: eureka-server
     image: dirceus/eureka-server
     container_name: eureka-server
     ports:
@@ -41,8 +41,8 @@ services:
       - minha-rede
   microservice-fornecedor1:
     build:
-      dockerfile: ./fornecedor/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: fornecedor
     image: dirceus/fornecedor-microservico
     container_name: fornecedor1
     ports:
@@ -55,8 +55,8 @@ services:
       - config-server
   microservice-fornecedor2:
     build:
-      dockerfile: ./fornecedor/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: fornecedor
     image: dirceus/fornecedor-microservico
     container_name: fornecedor2
     ports:
@@ -69,8 +69,8 @@ services:
       - config-server
   microservice-loja:
     build:
-      dockerfile: ./loja/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: loja
     image: dirceus/loja-microservico
     container_name: loja
     ports:
@@ -81,5 +81,3 @@ services:
 networks:
   minha-rede:
     driver: bridge
-
-
