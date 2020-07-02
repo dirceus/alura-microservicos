@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: 'storage'
+  profiles:
+    active: @spring.profiles.active@
+  cloud:
+    config:
+      uri: @spring.cloud.config.uri@
