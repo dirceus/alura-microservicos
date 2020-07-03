@@ -2,5 +2,3 @@
 server:
   port: 8083
 
-storage:
-  path: "/var/storage_data"

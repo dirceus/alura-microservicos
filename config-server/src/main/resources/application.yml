@@ -12,5 +12,6 @@ spring:
           uri: https://github.com/dirceus/config-repo
           search-paths:
           - fornecedor
+          - storage
 #        native:
 #          search-locations: /home/dirceu/dev/workspaces/curso-microservice-alura/microservice-repo
