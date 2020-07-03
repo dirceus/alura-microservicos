@@ -1,4 +1,4 @@
-package br.com.dirceus;
+package br.com.dirceus.storage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
