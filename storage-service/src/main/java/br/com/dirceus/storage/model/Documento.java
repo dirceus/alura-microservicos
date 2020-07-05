@@ -1,11 +1,17 @@
 package br.com.dirceus.storage.model;
 
+/**
+ * @author dirceu
+ *
+ */
 public class Documento {
 
 	public Long id;
 	public String aplicacao;
 	public String referencia;
 	public String metadados;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -31,6 +37,9 @@ public class Documento {
 		this.metadados = metadados;
 	}
 	
+	public String getUrl() {
+		return "/download/"+this.id;
+	}
 	
 	
 }

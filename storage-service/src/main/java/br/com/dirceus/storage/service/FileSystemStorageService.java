@@ -2,12 +2,15 @@ package br.com.dirceus.storage.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,4 +50,24 @@ public class FileSystemStorageService implements StorageService {
 	
 	
 	
+
+    @Override
+    public Resource loadAsResource(String docId) {
+    	Path file = Paths.get(storagePath).resolve(docId);
+    	try {
+			
+			Resource resource = new UrlResource(file.toUri());
+			if (resource.exists() || resource.isReadable()) {
+				return resource;
+			}
+			else {
+				throw new StorageException(
+						"Could not read file: " + file.getFileName());
+
+			}
+		}
+		catch (MalformedURLException e) {
+			throw new StorageException("Could not read file: " + file.getFileName(), e);
+		}
+    }
 }
