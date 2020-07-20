@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { DocumentoDetalhesComponent } from './documentos/documento-detalhes/documento-detalhes.component';
 import { DocumentoFormComponent } from './documentos/documento-form/documento-form.component';
 import { DocumentoListaComponent } from './documentos/documento-lista/documento-lista.component';
