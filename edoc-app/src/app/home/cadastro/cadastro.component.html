@@ -1,0 +1,63 @@
+<h4 class="text-center">Cadastre-se</h4>
+
+<form class="form mt-4" [formGroup]="cadastroForm" (submit)="cadastrarUsuario()">
+
+    <div class="form-group">
+        <input formControlName="email" class="form-control" placeholder="email" autofocus/>
+        <small class="text-danger d-block mt-2"
+            *ngIf="cadastroForm.get('email').errors?.required"> 
+            Email é obrigatório.
+        </small>  
+        <small class="text-danger d-block mt-2"
+            *ngIf="cadastroForm.get('email').errors?.email"> 
+            O Email informado não é válido.
+        </small>
+        <small class="text-danger d-block mt-2"
+            *ngIf="cadastroForm.get('email').errors?.emailExiste"> 
+            O Email já existe.
+        </small>
+        <small class="text-success d-block mt-2"
+            *ngIf="cadastroForm.get('email').valid"> 
+            O Email disponível.
+        </small>
+
+    </div>    
+
+    <div class="form-group">
+        <input formControlName="nome" class="form-control" placeholder="nome"/>
+        <small class="text-danger d-block mt-2" 
+            *ngIf="cadastroForm.get('nome').errors?.required"> 
+            Nome é obrigatório.
+        </small>
+        <small class="text-danger d-block mt-2" 
+            *ngIf="cadastroForm.get('nome').errors?.minlength"> 
+            A deve ter no mínimo 2 digitos.
+        </small>
+        <small class="text-danger d-block mt-2" 
+            *ngIf="cadastroForm.get('nome').errors?.maxlength"> 
+            A deve ter no máximo 100 digitos.
+        </small>
+    
+    </div>    
+
+    <div class="form-group">
+        <input formControlName="senha" type="password" class="form-control" placeholder="senha"/>
+        <small class="text-danger d-block mt-2" 
+            *ngIf="cadastroForm.get('senha').errors?.required"> 
+            Senha é obrigatório.
+        </small>
+        <small class="text-danger d-block mt-2" 
+            *ngIf="cadastroForm.get('senha').errors?.minlength"> 
+            A deve ter no mínimo 6 digitos.
+        </small>
+        <small class="text-danger d-block mt-2" 
+            *ngIf="cadastroForm.get('senha').errors?.maxlength"> 
+            A deve ter no máximo 20 digitos.
+        </small>
+    </div>   
+
+    <button [disabled]="cadastroForm.invalid || cadastroForm.pending" class="btn btn-primary btn-block">Cadastrar</button>
+
+    <p>Já é cadastrado? <a [routerLink]="['']">Efetue Login!</a></p>
+
+</form>    

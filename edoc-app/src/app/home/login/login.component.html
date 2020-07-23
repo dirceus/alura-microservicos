@@ -1,0 +1,42 @@
+<h4 class="text-center">Entrar</h4>
+
+<form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
+
+    <div class="form-group">
+        <input formControlName="email" 
+            class="form-control" 
+            placeholder="Email"
+            autofocus/>
+        <small class="text-danger d-block mt-2"
+            *ngIf="loginForm.get('email').errors?.required"> 
+            Email é obrigatório.
+        </small>  
+        <small class="text-danger d-block mt-2"
+            *ngIf="loginForm.get('email').errors?.email"> 
+            O Email informado não é válido.
+        </small>    
+    </div>
+
+    <div class="form-group">
+        <input formControlName="senha"
+         type="password" 
+         class="form-control" 
+         placeholder="Senha" />
+
+        <small class="text-danger d-block mt-2" 
+            *ngIf="loginForm.get('senha').errors?.required"> 
+            Senha é obrigatório.
+        </small>
+        <small class="text-danger d-block mt-2" 
+            *ngIf="loginForm.get('senha').errors?.minlength"> 
+            A deve ter no minímo 6 digitos.
+        </small>
+
+    
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Entrar</button>
+
+</form>
+
+<p>Não é cadastrado? <a [routerLink]="['cadastro']">Registre-se agora</a></p>

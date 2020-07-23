@@ -1,0 +1,10 @@
+<header class="fixed-top">
+    <nav class="navbar navbar-light bg-white">
+        <a class="navbar-brand">EDOC</a>
+        <div *ngIf="(usuario$ | async) as usuario">
+            <i class="fa fa-user-circle"></i>
+            <a class="ml-2">{{usuario.nome}}</a>
+            <a class="ml-2" (click)="logout()">(Sair)</a>
+        </div>
+    </nav>
+</header>
