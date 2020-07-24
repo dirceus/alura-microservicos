@@ -1,4 +1,4 @@
-<h4 class="text-center">Cadastre-se</h4>
+<h4 class="text-center"><i class="fa fa-user-plus" aria-hidden="true"></i> Cadastre-se</h4>
 
 <form class="form mt-4" [formGroup]="cadastroForm" (submit)="cadastrarUsuario()">
 
@@ -58,6 +58,6 @@
 
     <button [disabled]="cadastroForm.invalid || cadastroForm.pending" class="btn btn-primary btn-block">Cadastrar</button>
 
-    <p>Já é cadastrado? <a [routerLink]="['']">Efetue Login!</a></p>
+    <p>Já é cadastrado? <a [routerLink]="['']"><i class="fa fa-sign-in" aria-hidden="true"></i> Efetue Login!</a></p>
 
 </form>    

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { DocumentosModule } from './documentos/documentos.module';
-import { ErrosModule } from './erros/erros.module';
+
 import { HomeModule } from './home/home.module';
 import { CoreModule } from './core/core.module';
 
@@ -17,7 +17,6 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ErrosModule,
     DocumentosModule,
     HomeModule,
     CoreModule
