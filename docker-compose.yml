@@ -67,6 +67,19 @@ services:
     depends_on:
       - mariadb
       - config-server
+  storage-service:
+    build:
+      dockerfile: Dockerfile
+      context: storage-service
+    image: dirceus/storage-service
+    container_name: storage
+    ports:
+      - "8083:8083"
+    networks:
+      - minha-rede
+    restart: on-failure:15
+    depends_on:
+      - config-server
   microservice-loja:
     build:
       dockerfile: Dockerfile
