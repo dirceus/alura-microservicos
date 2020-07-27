@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.get('email').value;
     const senha = this.loginForm.get('senha').value;
     this.authService.autenticar(email, senha).subscribe(
-      () => this.router.navigate(['documento']),
+      () => this.router.navigate(['meudoc']),
       err => {
         alert('Login e Senha inválidos');
         console.log(err);

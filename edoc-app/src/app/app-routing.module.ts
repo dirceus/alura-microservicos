@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DocumentoDetalhesComponent } from './documentos/documento-detalhes/documento-detalhes.component';
-import { DocumentoFormComponent } from './documentos/documento-form/documento-form.component';
-import { DocumentoListaComponent } from './documentos/documento-lista/documento-lista.component';
 import { NotFoundComponent } from './core/erros/not-found/not-found.component';
 import { LoginComponent } from './home/login/login.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { CadastroComponent } from './home/cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
+import { AcervoComponent } from './meudoc/acervo/acervo.component';
+import { MeudocComponent } from './meudoc/meudoc.component';
+import { TipologiaComponent } from './meudoc/tipologia/tipologia.component';
+import { DocumentoComponent } from './meudoc/documento/documento.component';
 
 const routes: Routes = [
   {
@@ -18,10 +19,10 @@ const routes: Routes = [
       { path: 'cadastro', component: CadastroComponent},
     ]
   },
-  { path: 'documento', component: DocumentoListaComponent },
-  { path: 'documento/adicionar', component: DocumentoFormComponent },
-  { path: 'documento/detalhes/:docId', component: DocumentoDetalhesComponent },
-  { path: 'documento/edit/:docId', component: DocumentoFormComponent },
+  { path: 'meudoc', component: MeudocComponent },
+  { path: 'meudoc/acervo', component: AcervoComponent },
+  { path: 'meudoc/tipologia', component: TipologiaComponent },
+  { path: 'meudoc/documento', component: DocumentoComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
