@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ErrorDetails.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">meudoc-commons</a> &gt; <a href="index.source.html" class="el_package">br.com.dirceus.meudoc.commons.exception</a> &gt; <span class="el_source">ErrorDetails.java</span></div><h1>ErrorDetails.java</h1><pre class="source lang-java linenums">package br.com.dirceus.meudoc.commons.exception;
+
+import java.util.Date;
+import java.util.List;
+import javax.annotation.Generated;
+import java.util.Collections;
+
+public class ErrorDetails {
+
+	private String mensagem;
+	private List&lt;String&gt; erros;
+	private int status;
+	private Date data;
+	private StackTraceElement[] detalhes;
+
+<span class="nc" id="L16">	public ErrorDetails(){</span>
+		
+<span class="nc" id="L18">	}</span>
+	
+<span class="nc" id="L20">	private ErrorDetails(Builder builder) {</span>
+<span class="nc" id="L21">		this.mensagem = builder.mensagem;</span>
+<span class="nc" id="L22">		this.erros = builder.erros;</span>
+<span class="nc" id="L23">		this.status = builder.status;</span>
+<span class="nc" id="L24">		this.data = builder.data;</span>
+<span class="nc" id="L25">		this.detalhes = builder.detalhes;</span>
+<span class="nc" id="L26">	}</span>
+
+	
+	public String getMensagem() {
+<span class="nc" id="L30">		return mensagem;</span>
+	}
+	
+	public List&lt;String&gt; getErros() {
+<span class="nc" id="L34">		return erros;</span>
+	}
+
+	public int getStatus() {
+<span class="nc" id="L38">		return status;</span>
+	}
+
+	public Date getData() {
+<span class="nc" id="L42">		return data;</span>
+	}
+
+	public StackTraceElement[]  getDetalhes() {
+<span class="nc" id="L46">		return detalhes;</span>
+	}
+
+	/**
+	 * Creates builder to build {@link ErrorDetails}.
+	 * @return created builder
+	 */
+	@Generated(&quot;SparkTools&quot;)
+	public static Builder builder() {
+<span class="nc" id="L55">		return new Builder();</span>
+	}
+
+	/**
+	 * Builder to build {@link ErrorDetails}.
+	 */
+	@Generated(&quot;SparkTools&quot;)
+	public static final class Builder {
+		private String mensagem;
+<span class="nc" id="L64">		private List&lt;String&gt; erros = Collections.emptyList();</span>
+		private int status;
+		private Date data;
+		private StackTraceElement[] detalhes;
+
+<span class="nc" id="L69">		private Builder() {</span>
+<span class="nc" id="L70">		}</span>
+
+		public Builder withMensagem(String mensagem) {
+<span class="nc" id="L73">			this.mensagem = mensagem;</span>
+<span class="nc" id="L74">			return this;</span>
+		}
+
+		public Builder withErros(List&lt;String&gt; erros) {
+<span class="nc" id="L78">			this.erros = erros;</span>
+<span class="nc" id="L79">			return this;</span>
+		}
+
+		public Builder withStatus(int status) {
+<span class="nc" id="L83">			this.status = status;</span>
+<span class="nc" id="L84">			return this;</span>
+		}
+
+		public Builder withData(Date data) {
+<span class="nc" id="L88">			this.data = data;</span>
+<span class="nc" id="L89">			return this;</span>
+		}
+
+		public Builder withDetalhes(StackTraceElement[] detalhes) {
+<span class="nc" id="L93">			this.detalhes = detalhes;</span>
+<span class="nc" id="L94">			return this;</span>
+		}
+
+		public ErrorDetails build() {
+<span class="nc" id="L98">			return new ErrorDetails(this);</span>
+		}
+	}
+
+	
+
+	
+	
+	
+
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

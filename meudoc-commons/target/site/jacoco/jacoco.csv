@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+meudoc-commons,br.com.dirceus.meudoc.commons.exception,ErrorDetails.Builder,37,0,0,0,14,0,7,0,7,0
+meudoc-commons,br.com.dirceus.meudoc.commons.exception,RepositoryException,13,0,0,0,6,0,3,0,3,0
+meudoc-commons,br.com.dirceus.meudoc.commons.exception,ErrorDetails,46,0,0,0,15,0,8,0,8,0
+meudoc-commons,br.com.dirceus.meudoc.commons.exception,BusinessException,9,0,0,0,4,0,2,0,2,0
+meudoc-commons,br.com.dirceus.meudoc.commons.exception,PermissionDeniedException,13,0,0,0,6,0,3,0,3,0
+meudoc-commons,br.com.dirceus.meudoc.commons.modelmapper,MapperUtil,19,0,0,0,5,0,3,0,3,0
+meudoc-commons,br.com.dirceus.meudoc.commons,App,7,0,0,0,3,0,2,0,2,0
+meudoc-commons,br.com.dirceus.meudoc.commons.dto,UsuarioDTO,72,0,0,0,29,0,15,0,15,0
+meudoc-commons,br.com.dirceus.meudoc.commons.security,VerificaPermissaoContidaNoRequest,91,0,6,0,21,0,6,0,3,0
+meudoc-commons,br.com.dirceus.meudoc.commons.security,Permissao,24,0,0,0,3,0,1,0,1,0

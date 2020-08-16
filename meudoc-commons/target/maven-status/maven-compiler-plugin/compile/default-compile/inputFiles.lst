@@ -1,0 +1,10 @@
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/security/VerificaPermissaoContidaNoRequest.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/exception/RepositoryException.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/security/Permissao.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/dto/UsuarioDTO.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/exception/ErrorDetails.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/modelmapper/MapperUtil.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/exception/PermissionDeniedException.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/App.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/security/PermissaoRequerida.java
+/home/dirceu/dev/workspaces/curso-microservice-alura/meudoc-commons/src/main/java/br/com/dirceus/meudoc/commons/exception/BusinessException.java

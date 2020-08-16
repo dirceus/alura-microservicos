@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VerificaPermissaoContidaNoRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">meudoc-commons</a> &gt; <a href="index.source.html" class="el_package">br.com.dirceus.meudoc.commons.security</a> &gt; <span class="el_source">VerificaPermissaoContidaNoRequest.java</span></div><h1>VerificaPermissaoContidaNoRequest.java</h1><pre class="source lang-java linenums">package br.com.dirceus.meudoc.commons.security;
+
+import java.util.Objects;
+import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+
+import br.com.dirceus.meudoc.commons.dto.UsuarioDTO;
+import br.com.dirceus.meudoc.commons.exception.PermissionDeniedException;
+
+@Aspect
+@Component
+<span class="nc" id="L28">public class VerificaPermissaoContidaNoRequest {</span>
+
+	@Autowired
+	@Lazy
+	private EurekaClient eurekaClient;
+	
+<span class="nc" id="L34">	private RestTemplate restTemplate = new RestTemplate();</span>
+	
+	@Before(&quot;@annotation(permissaoRequerida)&quot;)
+    public void doBefore(PermissaoRequerida permissaoRequerida) throws PermissionDeniedException {
+<span class="nc" id="L38">        HttpServletRequest servletRequest = currentRequest();</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (Objects.isNull(servletRequest)) {</span>
+<span class="nc" id="L40">            throw new PermissionDeniedException(&quot;Sem Requisição HTTP&quot;);</span>
+        }
+        
+<span class="nc" id="L43">        String token= servletRequest.getHeader(&quot;Authorization&quot;);</span>
+        
+<span class="nc" id="L45">        Permissao permissao = permissaoRequerida.value();</span>
+<span class="nc" id="L46">        HttpEntity&lt;String&gt; httpRequest = new HttpEntity&lt;&gt;(token);</span>
+		
+<span class="nc" id="L48">        InstanceInfo instance = eurekaClient.getNextServerFromEureka(&quot;AUTH-SERVER&quot;, false);</span>
+<span class="nc" id="L49">        String url = instance.getHomePageUrl();</span>
+        
+<span class="nc" id="L51">        ResponseEntity&lt;UsuarioDTO&gt; exchange = </span>
+<span class="nc" id="L52">				restTemplate.exchange(url+&quot;auth/usuario&quot;,</span>
+<span class="nc" id="L53">						HttpMethod.POST, httpRequest, UsuarioDTO.class);</span>
+		
+<span class="nc" id="L55">		UsuarioDTO usuario = exchange.getBody();</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (Objects.isNull(usuario)) {</span>
+<span class="nc" id="L57">	            throw new PermissionDeniedException(&quot;Token inválido&quot;);</span>
+	    }
+		
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if(!usuario.getPermissoes().contains(permissao)) {</span>
+<span class="nc" id="L61">			throw new PermissionDeniedException(&quot;Não possui permissão&quot;);</span>
+		};
+		 
+<span class="nc" id="L64">    }</span>
+
+    /**
+     * Return request current thread bound or null if none bound.
+     *
+     * @return Current request or null
+     */
+    private HttpServletRequest currentRequest() {
+        // Use getRequestAttributes because of its return null if none bound
+<span class="nc" id="L73">        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();</span>
+<span class="nc" id="L74">        return Optional.ofNullable(servletRequestAttributes).map(ServletRequestAttributes::getRequest).orElse(null);</span>
+    }
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
