@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
-import br.com.dirceus.auth.common.exception.BusinessException;
-import br.com.dirceus.auth.dto.TokenInfoDTO;
-import br.com.dirceus.auth.model.Usuario;
 import br.com.dirceus.auth.service.TokenService;
+import br.com.dirceus.meudoc.commons.dto.UsuarioDTO;
+import br.com.dirceus.meudoc.commons.exception.BusinessException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -25,8 +24,7 @@ public class TokenServiceImpl implements TokenService {
 	private String segredo;
 	
 	@Override
-	public String gerarToken(Usuario usuario) {
-		usuario.setSenha(null);
+	public String gerarToken(UsuarioDTO usuario) {
 		String subject = new Gson().toJson(usuario);
 		return Jwts.builder()
 				.setIssuedAt(new Date(System.currentTimeMillis()))
@@ -36,19 +34,7 @@ public class TokenServiceImpl implements TokenService {
 				.compact();
 	}
 
-	@Override
-	public Boolean validarToken(String token) {
-		Claims claims;
-		try {
-			claims = decodificarToken(token);
-		}catch (Exception e) {
-			return false;
-		}
-		if(claims.getExpiration().before(new Date(System.currentTimeMillis()))) {
-			return false;
-		}
-		return true;
-	}
+	
 
 	private Claims decodificarToken(String token) {
 		return Jwts.parser()
@@ -59,11 +45,11 @@ public class TokenServiceImpl implements TokenService {
 	
 	
 	@Override
-	public TokenInfoDTO tokenInfo(String token) throws BusinessException {
+	public UsuarioDTO getUsuarioDoToken(String token) throws BusinessException {
 		Claims claims;
 		try {
 			claims = decodificarToken(token);
-			return new Gson().fromJson(claims.getSubject(), TokenInfoDTO.class);
+			return new Gson().fromJson(claims.getSubject(),UsuarioDTO.class);
 		}catch (Exception e) {
 			throw new BusinessException("Token inválido");
 		}

@@ -9,6 +9,11 @@ public class LoginDTO {
 		
 	}
 	
+	public LoginDTO(String email, String senha) {
+		this.email = email;
+		this.senha = senha;
+	}
+
 	public String getEmail() {
 		return email;
 	}

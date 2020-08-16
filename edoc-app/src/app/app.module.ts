@@ -5,21 +5,22 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DocumentosModule } from './documentos/documentos.module';
+import { MeudocModule } from './meudoc/meudoc.module';
 
 import { HomeModule } from './home/home.module';
 import { CoreModule } from './core/core.module';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DocumentosModule,
+    MeudocModule,
     HomeModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

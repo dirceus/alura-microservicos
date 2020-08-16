@@ -1,0 +1,12 @@
+br/com/dirceus/meudoc/commons/dto/UsuarioDTO.class
+br/com/dirceus/meudoc/commons/exception/PermissionDeniedException.class
+br/com/dirceus/meudoc/commons/security/PermissaoRequerida.class
+br/com/dirceus/meudoc/commons/exception/ErrorDetails.class
+br/com/dirceus/meudoc/commons/exception/RepositoryException.class
+br/com/dirceus/meudoc/commons/security/VerificaPermissaoContidaNoRequest.class
+br/com/dirceus/meudoc/commons/exception/ErrorDetails$Builder.class
+br/com/dirceus/meudoc/commons/security/Permissao.class
+br/com/dirceus/meudoc/commons/modelmapper/MapperUtil.class
+br/com/dirceus/meudoc/commons/exception/BusinessException.class
+br/com/dirceus/meudoc/commons/App.class
+br/com/dirceus/meudoc/commons/exception/ErrorDetails$1.class
